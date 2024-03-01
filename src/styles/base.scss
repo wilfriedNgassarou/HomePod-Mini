@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgba($color: #000000, $alpha: .8);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: $blue;
+  border-radius: 20px;
+}
