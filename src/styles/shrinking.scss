@@ -1,0 +1,24 @@
+.shrinking {
+  top: calc(-1 * $header-height);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; 
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 80px;
+  }
+}
+
+.shrinking-active {
+  transform: translateY(0);
+}
+
+.shrinking-close {
+  transform: translateY(-100vh);
+}

@@ -45,9 +45,14 @@ a {
     transform: scale(0.8);
   }
 }
+body {
+  overflow: hidden;
+}
+
 header {
   top: 0;
   position: fixed;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -333,6 +338,96 @@ main {
 .end .homepod-text {
   transform-origin: bottom !important;
   transform: translateY(0) scale(1);
+}
+
+.close .start-text {
+  transform: scale(0) !important;
+  transition: transform 0.5s linear !important;
+}
+.close .start-text h1, .close .start-text h2 {
+  transform: none !important;
+  transition: none !important;
+}
+.close .homepod-container div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale)) !important;
+  transition: all 1s ease;
+  width: 311px;
+  height: 289px;
+}
+.close .homepod-container div:nth-of-type(1) {
+  --scale: 1;
+  --translate-x: 0px ;
+  --translate-y: -80vh;
+  opacity: 0;
+}
+.close .homepod-container div:nth-of-type(2) {
+  --scale: .8 ;
+  --translate-x: calc(var(--translate-width) / 2) ;
+  --translate-y: -80vh;
+  opacity: 0;
+}
+.close .homepod-container div:nth-of-type(3) {
+  --scale: .8 ;
+  --translate-x: calc(var(--translate-width) / -2) ;
+  --translate-y: -80vh;
+  opacity: 0;
+}
+.close .homepod-container div:nth-of-type(4) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  --scale: .4 ;
+  --translate-x: calc(50vw - var(--translate-width) * .6) ;
+  --translate-y: calc(50vh - var(--translate-height) * .5);
+  transform-origin: bottom right;
+}
+.close .homepod-container div:nth-of-type(5) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  --scale: .4 ;
+  --translate-x: calc((-1 * 50vw) - var(--translate-width) * -0.6) ;
+  --translate-y: calc(50vh - var(--translate-height) * .5);
+  transform-origin: bottom left;
+}
+.close .homepod-container {
+  opacity: 1 !important;
+  transform-origin: center !important;
+  bottom: calc(50vh - 144.5px) !important;
+}
+.close .homepod-container .cursor-1, .close .homepod-container .cursor-2 {
+  transform: scale(0);
+}
+.close .homepod-text {
+  transform-origin: bottom !important;
+  transform: translateY(-50vh) scale(1);
+}
+.close .end-text {
+  opacity: 0 !important;
+  transition: opacity 1s ease;
+  bottom: 25px;
+}
+
+.shrinking {
+  top: -96px;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+}
+.shrinking img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 80px;
+}
+
+.shrinking-active {
+  transform: translateY(0);
+}
+
+.shrinking-close {
+  transform: translateY(-100vh);
 }
 
 /*# sourceMappingURL=index.css.map */

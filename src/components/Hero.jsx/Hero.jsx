@@ -2,10 +2,13 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react"
 
-export default function Hero() {
+export default function Hero({step, changeStep}) {
   const [animationState, setAnimationState] = useState('') ;
+  // On change le state lorsque la 2e transition se produit
+  const [transitionNumber, setTransitionNumber] = useState(0) ;
 
   const cursor2 = useRef(null) ;
+  const homePodRef = useRef(null) ;
 
   function handleClick() {
     setAnimationState('middle') ;
@@ -20,9 +23,18 @@ export default function Hero() {
   function handleAnimationEnd() {
     setAnimationState('end')
   }
+
+  function handleTransitionEnd() {
+    setTransitionNumber(tn => tn + 1) ;
+
+    if(transitionNumber == 1) {
+      changeStep(2)
+      setAnimationState('close')
+    }
+  }
   
   return (
-    <div className={"hero " + animationState}>
+    <div className={`hero  ${animationState}`}>
       <article className="start-text">
         <h1>
             Nothing short <br />
@@ -60,10 +72,10 @@ export default function Hero() {
         <div>
           <img src="assets/homepod/hp_yellow.svg" alt="Home Pod Yellow" />
         </div>
-        <div>
+        <div className="black">
           <img src="assets/homepod/hp_black.svg" alt="Home Pod Black" />
         </div>
-        <div>
+        <div ref={homePodRef} onTransitionEnd={handleTransitionEnd} className="orange">
           <img src="assets/homepod/hp_orange.svg" alt="Home Pod Orange" />
         </div>
         <article className="cursor-1"></article>
