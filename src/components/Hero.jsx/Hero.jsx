@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react"
 
-export default function Hero({step, changeStep}) {
+export default function Hero({step, changeStep, iconShowed, changeIconShowed}) {
   const [animationState, setAnimationState] = useState('') ;
   // On change le state lorsque la 2e transition se produit
   const [transitionNumber, setTransitionNumber] = useState(0) ;
@@ -14,9 +14,17 @@ export default function Hero({step, changeStep}) {
     setAnimationState('middle') ;
   }
 
+  if(step == 3) {
+    setTimeout(() => {
+      setAnimationState('widget-open')
+      changeIconShowed('music')
+    }, 50);    
+
+  }
 
   useEffect(() => {
     setAnimationState('start') ;
+
 
   }, [])
 
@@ -37,17 +45,27 @@ export default function Hero({step, changeStep}) {
     <div className={`hero  ${animationState}`}>
       <article className="start-text">
         <h1>
-            Nothing short <br />
-            of amazing
+            <span>
+              <span>
+                Nothing short
+              </span>
+            </span>
+            <span>
+              <span>
+                of amazing
+              </span>
+            </span>
         </h1>
         <h2>
-          HomePod mini
+          <span>
+            HomePod mini
+          </span>
         </h2>
       </article>
       <article  className="middle-text">
         <h1>
-          <span>Siri does everything</span> <br />
-          <span>like there's</span> <br />
+          <span>Siri does everything</span> 
+          <span>like there's</span>
           <span>nothing to it.</span>
         </h1>
       </article>
@@ -62,7 +80,7 @@ export default function Hero({step, changeStep}) {
           <a className="btn" href="#">Discover</a>
         </span>
       </article>
-      <div className={"homepod-container"}>
+      <div className={`homepod-container ${iconShowed}`}>
         <div>
           <img src="assets/homepod/hp_white.svg" alt="Home Pod White" />
         </div>

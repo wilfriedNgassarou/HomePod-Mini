@@ -1,0 +1,119 @@
+.widget {
+  top: calc(-1 * $header-height);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 2; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+}
+
+.widget-active {
+  transform: translateY(0);
+}
+
+.widget {
+  .icon-container {
+    position: absolute;
+    top: $header-height;
+    // background-color: red;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon-with-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .item {
+
+      height: 120px;
+      text-align: center;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .img {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .text {
+      
+      h3 {
+        overflow: hidden;
+        font-size: 30px;        
+        color: transparent;
+        
+        span {
+          display: block;
+          background: linear-gradient(0deg, #FFA745 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
+          background-clip: text;
+          transform: translateY(50%);
+        }
+
+      }
+
+      p {
+        font-size: 17px;
+        letter-spacing: -0.006px;
+        color: #86868B;
+      }
+    }
+
+    .item {
+      --rayon: 175px ;
+      transform: translate(
+        calc(
+          cos(var(--angle)) * var(--distance-x)
+        ),
+        calc(
+          sin(var(--angle)) * var(--distance-y)
+        )
+      );
+
+      &:nth-of-type(1) {
+        --angle: calc((3 * pi) / 2);
+        --distance-x: 0px;
+        --distance-y: var(--rayon);
+      }
+      &:nth-of-type(2) {
+        --angle: 0;
+        --distance-x: var(--rayon);
+        --distance-y: 0px;
+      }
+      
+      &:nth-of-type(3) {
+        --angle: calc(pi / 2) ;
+        --distance-x: 0px;
+        --distance-y: var(--rayon);
+        z-index: 999999999 !important;
+      }
+      &:nth-of-type(4) {
+        --angle: pi ;
+        --distance-x: var(--rayon) ;
+        --distance-y: 0px ;
+      
+      }
+    }
+  }
+}

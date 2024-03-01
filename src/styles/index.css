@@ -25,28 +25,29 @@ a {
 
 @keyframes show-1 {
   0% {
-    transform: scale(0.8);
+    transform: scale(0.7, 1);
   }
   50% {
-    transform: scale(1.4);
+    transform: scale(0.98, 1.4);
   }
   100% {
-    transform: scale(0.8);
+    transform: scale(0.7, 1);
   }
 }
 @keyframes show-2 {
   0% {
-    transform: scale(0.8);
+    transform: scale(0.7, 1);
   }
   50% {
-    transform: scale(1.8);
+    transform: scale(1.26, 1.8);
   }
   100% {
-    transform: scale(0.8);
+    transform: scale(0.7, 1);
   }
 }
 body {
   overflow: hidden;
+  font-family: Helvetica, sans-serif;
 }
 
 header {
@@ -108,19 +109,32 @@ main {
 }
 .start-text h1, .start-text h2 {
   text-align: center;
-  transition: transform 0.5s linear;
-  transform: translateY(150%);
 }
 .start-text h1 {
   font-size: 86px;
   line-height: 0.8;
   margin-bottom: 20px;
+}
+.start-text h1 > span {
+  overflow: hidden;
+  display: block;
+}
+.start-text h1 > span span {
   background-image: linear-gradient(0deg, #FFC145 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
   background-clip: text;
   color: transparent;
+  display: block;
+  transform: translateY(90px);
+  transition: transform 0.5s linear;
 }
 .start-text h2 {
   font-size: 38px;
+  overflow: hidden;
+}
+.start-text h2 span {
+  display: block;
+  transform: translateY(90px);
+  transition: transform 0.5s linear;
 }
 
 .middle-text {
@@ -131,6 +145,25 @@ main {
 .middle-text h1 {
   font-size: 55px;
   text-align: center;
+  line-height: 0.85;
+}
+.middle-text h1 span {
+  display: block;
+}
+.middle-text h1 span:nth-of-type(1) {
+  background: linear-gradient(to bottom, #43AEFF 85%, #A083ED 70%);
+  background-clip: text;
+  color: transparent;
+}
+.middle-text h1 span:nth-of-type(2) {
+  background: linear-gradient(to bottom, #A083ED 70%, #FE869F 30%, #EF7AC8 45%);
+  background-clip: text;
+  color: transparent;
+}
+.middle-text h1 span:nth-of-type(3) {
+  background: linear-gradient(to bottom, #A083ED 20%, #FFA745 0%);
+  background-clip: text;
+  color: transparent;
 }
 
 .end-text {
@@ -238,7 +271,10 @@ main {
   --index: 16 ;
 }
 
-.start .start-text h1, .start .start-text h2 {
+.start .start-text h1 span span {
+  transform: translateY(0);
+}
+.start .start-text h2 span {
   transform: translateY(0);
 }
 .start .homepod-container {
@@ -268,7 +304,7 @@ main {
   transition: bottom 1s ease !important;
 }
 .middle .homepod-container div {
-  transform: scale(1) !important;
+  transform: scale(0.7, 1) !important;
   transition: transform 1s ease !important;
 }
 .middle .middle-text {
@@ -299,32 +335,37 @@ main {
   transition: none !important;
 }
 .end .homepod-container div {
-  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale)) !important;
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale-x), var(--scale-y)) !important;
   transition: all 1s ease;
 }
 .end .homepod-container div:nth-of-type(1) {
-  --scale: 1;
+  --scale-x: 0.7;
+  --scale-y: 1;
   --translate-x: 0px ;
   --translate-y: 0px;
 }
 .end .homepod-container div:nth-of-type(2) {
-  --scale: .8 ;
+  --scale-x: .56 ;
+  --scale-y: .8 ;
   --translate-x: calc(var(--translate-width) / 2) ;
   --translate-y: 0px;
 }
 .end .homepod-container div:nth-of-type(3) {
-  --scale: .8 ;
+  --scale-x: .56 ;
+  --scale-y: .8 ;
   --translate-x: calc(var(--translate-width) / -2) ;
   --translate-y: 0px;
 }
 .end .homepod-container div:nth-of-type(4) {
-  --scale: .6 ;
-  --translate-x: var(--translate-width) ;
+  --scale-x: .48 ;
+  --scale-y: .6 ;
+  --translate-x: calc(var(--translate-width) ) ;
   --translate-y: 0px;
 }
 .end .homepod-container div:nth-of-type(5) {
-  --scale: .6 ;
-  --translate-x: calc(-1 * var(--translate-width) ) ;
+  --scale-x: .48 ;
+  --scale-y: .6 ;
+  --translate-x: calc(var(--translate-width) / -1) ;
   --translate-y: 0px;
 }
 .end .homepod-container {
@@ -406,6 +447,82 @@ main {
   bottom: 25px;
 }
 
+.widget-open .start-text {
+  transform: scale(0) !important;
+  transition: transform 0.5s linear !important;
+}
+.widget-open .start-text h1, .widget-open .start-text h2 {
+  transform: none !important;
+  transition: none !important;
+}
+.widget-open .homepod-container div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale-x), var(--scale-y)) !important;
+  transition: all 1s ease;
+  width: 311px;
+  height: 289px;
+}
+.widget-open .homepod-container div:nth-of-type(1) {
+  --scale-x: .6;
+  --scale-y: .6;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  opacity: 0;
+  z-index: 18;
+}
+.widget-open .homepod-container div:nth-of-type(2) {
+  --scale-x: .6 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: 0;
+  z-index: 17;
+  opacity: 0;
+}
+.widget-open .homepod-container div:nth-of-type(3) {
+  --scale-x: .6 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: 0;
+  opacity: 0;
+  z-index: 16;
+}
+.widget-open .homepod-container div:nth-of-type(4) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 20;
+  --scale-x: .6 ;
+  --scale-y: .8 ;
+  transform-origin: center;
+  --translate-x: calc(var(--translate-width) / -3.5) ;
+  --translate-y: 0;
+}
+.widget-open .homepod-container div:nth-of-type(5) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 19;
+  --scale-x: .5 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: -30px;
+  transform-origin: center;
+}
+.widget-open .homepod-container {
+  opacity: 1 !important;
+  transform-origin: center !important;
+  bottom: calc(50vh - 144.5px) !important;
+}
+.widget-open .homepod-container .cursor-1, .widget-open .homepod-container .cursor-2 {
+  transform: scale(0);
+}
+.widget-open .homepod-text {
+  transform-origin: bottom !important;
+  transform: translateY(-50vh) scale(1);
+}
+.widget-open .end-text {
+  opacity: 0 !important;
+  transition: opacity 1s ease;
+  bottom: 25px;
+}
+
 .shrinking {
   top: -96px;
   position: absolute;
@@ -428,6 +545,100 @@ main {
 
 .shrinking-close {
   transform: translateY(-100vh);
+}
+
+.widget {
+  top: -96px;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100vh);
+  transition: transform 1s ease;
+}
+
+.widget-active {
+  transform: translateY(0);
+}
+
+.widget .icon-container {
+  position: absolute;
+  top: 96px;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.widget .icon-with-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.widget .icon-with-text .item {
+  height: 120px;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.widget .icon-with-text .item .img {
+  width: 40px;
+  height: 40px;
+}
+.widget .icon-with-text .item .img img {
+  width: 100%;
+  height: 100%;
+}
+.widget .icon-with-text .text h3 {
+  overflow: hidden;
+  font-size: 30px;
+  color: transparent;
+}
+.widget .icon-with-text .text h3 span {
+  display: block;
+  background: linear-gradient(0deg, #FFA745 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
+  background-clip: text;
+  transform: translateY(50%);
+}
+.widget .icon-with-text .text p {
+  font-size: 17px;
+  letter-spacing: -0.006px;
+  color: #86868B;
+}
+.widget .icon-with-text .item {
+  --rayon: 175px ;
+  transform: translate(calc(cos(var(--angle)) * var(--distance-x)), calc(sin(var(--angle)) * var(--distance-y)));
+}
+.widget .icon-with-text .item:nth-of-type(1) {
+  --angle: calc((3 * pi) / 2);
+  --distance-x: 0px;
+  --distance-y: var(--rayon);
+}
+.widget .icon-with-text .item:nth-of-type(2) {
+  --angle: 0;
+  --distance-x: var(--rayon);
+  --distance-y: 0px;
+}
+.widget .icon-with-text .item:nth-of-type(3) {
+  --angle: calc(pi / 2) ;
+  --distance-x: 0px;
+  --distance-y: var(--rayon);
+  z-index: 999999999 !important;
+}
+.widget .icon-with-text .item:nth-of-type(4) {
+  --angle: pi ;
+  --distance-x: var(--rayon) ;
+  --distance-y: 0px ;
 }
 
 /*# sourceMappingURL=index.css.map */
