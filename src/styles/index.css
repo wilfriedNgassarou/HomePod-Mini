@@ -23,6 +23,28 @@ a {
   border-radius: 20px;
 }
 
+@keyframes show-1 {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+@keyframes show-2 {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
 header {
   top: 0;
   position: fixed;
@@ -49,6 +71,268 @@ header div span {
 }
 header h1 {
   font-size: 20px;
+}
+
+main {
+  margin-top: 96px;
+  height: calc(100vh - 96px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-text {
+  position: relative;
+  z-index: 10;
+}
+
+.start-text {
+  overflow-y: hidden;
+}
+.start-text h1, .start-text h2 {
+  text-align: center;
+  transition: transform 0.5s linear;
+  transform: translateY(150%);
+}
+.start-text h1 {
+  font-size: 86px;
+  line-height: 0.8;
+  margin-bottom: 20px;
+  background-image: linear-gradient(0deg, #FFC145 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
+  background-clip: text;
+  color: transparent;
+}
+.start-text h2 {
+  font-size: 38px;
+}
+
+.middle-text {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+.middle-text h1 {
+  font-size: 55px;
+  text-align: center;
+}
+
+.end-text {
+  position: fixed;
+  bottom: -80px;
+  text-align: center;
+  transition: bottom 1s ease;
+}
+
+.hero-btn-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 0.5s linear, opacity 0.3s ease;
+  margin: 50px 0;
+  width: 166px;
+  height: 55px;
+  line-height: 55px;
+  position: relative;
+  z-index: 9;
+}
+.hero-btn-container .btn {
+  font-size: 23px;
+  border-radius: 40px;
+  background-color: black;
+  box-shadow: 0px 0px 50px #FF0057;
+}
+
+.homepod-container {
+  transition: bottom 0.7s linear, opacity 0.5s linear;
+  opacity: 0;
+  bottom: calc(100vh - 289px);
+  transform-origin: bottom;
+  position: fixed;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 311px;
+  height: 289px;
+}
+.homepod-container div {
+  transform: scale(2.2) !important;
+  --translate-width: 250px;
+  --scale: .8;
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale));
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: top;
+}
+.homepod-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.cursor-1, .cursor-2 {
+  top: 0;
+  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 87, 0.25);
+  transform: scale(0.5);
+}
+
+.cursor-1 {
+  z-index: 14;
+}
+
+.cursor-2 {
+  z-index: 12;
+  background-color: rgba(255, 0, 87, 0.15);
+}
+
+.homepod-container .homepod-text {
+  transform: translateY(100px) scale(0.5);
+  transition: transform 1s ease;
+  position: absolute;
+  top: -100px;
+  display: inline-block;
+  z-index: 14;
+  width: 200px;
+}
+.homepod-container .homepod-text img {
+  width: 100%;
+}
+
+.homepod-container div {
+  z-index: var(--index);
+}
+.homepod-container div:nth-of-type(1) {
+  --index: 20 ;
+}
+.homepod-container div:nth-of-type(2) {
+  --index: 19 ;
+}
+.homepod-container div:nth-of-type(3) {
+  --index: 18 ;
+}
+.homepod-container div:nth-of-type(4) {
+  --index: 17 ;
+}
+.homepod-container div:nth-of-type(5) {
+  --index: 16 ;
+}
+
+.start .start-text h1, .start .start-text h2 {
+  transform: translateY(0);
+}
+.start .homepod-container {
+  opacity: 1 !important;
+  bottom: -144.5px !important;
+}
+.start .homepod-container img {
+  transform-origin: top !important;
+}
+.start .hero-btn-container {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+.middle .start-text {
+  transform: scale(0) !important;
+  transition: transform 0.5s linear !important;
+}
+.middle .start-text h1, .middle .start-text h2 {
+  transform: none !important;
+  transition: none !important;
+}
+.middle .homepod-container {
+  bottom: 20px;
+  opacity: 1;
+  transform-origin: top;
+  transition: bottom 1s ease !important;
+}
+.middle .homepod-container div {
+  transform: scale(1) !important;
+  transition: transform 1s ease !important;
+}
+.middle .middle-text {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.3s !important;
+}
+.middle .cursor-1 {
+  animation-name: show-1;
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+  animation-delay: 1s;
+  animation-iteration-count: 2;
+}
+.middle .cursor-2 {
+  animation-name: show-2;
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+  animation-delay: 1.3s;
+  animation-iteration-count: 2;
+}
+
+.end .start-text {
+  transform: scale(0) !important;
+  transition: transform 0.5s linear !important;
+}
+.end .start-text h1, .end .start-text h2 {
+  transform: none !important;
+  transition: none !important;
+}
+.end .homepod-container div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale)) !important;
+  transition: all 1s ease;
+}
+.end .homepod-container div:nth-of-type(1) {
+  --scale: 1;
+  --translate-x: 0px ;
+  --translate-y: 0px;
+}
+.end .homepod-container div:nth-of-type(2) {
+  --scale: .8 ;
+  --translate-x: calc(var(--translate-width) / 2) ;
+  --translate-y: 0px;
+}
+.end .homepod-container div:nth-of-type(3) {
+  --scale: .8 ;
+  --translate-x: calc(var(--translate-width) / -2) ;
+  --translate-y: 0px;
+}
+.end .homepod-container div:nth-of-type(4) {
+  --scale: .6 ;
+  --translate-x: var(--translate-width) ;
+  --translate-y: 0px;
+}
+.end .homepod-container div:nth-of-type(5) {
+  --scale: .6 ;
+  --translate-x: calc(-1 * var(--translate-width) ) ;
+  --translate-y: 0px;
+}
+.end .homepod-container {
+  opacity: 1 !important;
+  transform-origin: center !important;
+  bottom: calc(50vh - 144.5px) !important;
+}
+.end .end-text {
+  bottom: 25px !important;
+}
+.end .homepod-text {
+  transform-origin: bottom !important;
+  transform: translateY(0) scale(1);
 }
 
 /*# sourceMappingURL=index.css.map */
