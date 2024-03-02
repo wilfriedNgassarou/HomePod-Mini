@@ -15,10 +15,12 @@
   }
 }
 
+// Gestion de la transition d'ouverture vers le haut
 .shrinking-active {
   transform: translateY(0);
 }
 
+// Gestion de la transition de fermeture vers le haut
 .shrinking-close {
   transform: translateY(-100vh);
 }

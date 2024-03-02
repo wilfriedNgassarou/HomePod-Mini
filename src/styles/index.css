@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -25,24 +26,24 @@ a {
 
 @keyframes show-1 {
   0% {
-    transform: scale(0.7, 1);
+    transform: scale(0.8, 1);
   }
   50% {
-    transform: scale(0.98, 1.4);
+    transform: scale(1.04, 1.3);
   }
   100% {
-    transform: scale(0.7, 1);
+    transform: scale(0.8, 1);
   }
 }
 @keyframes show-2 {
   0% {
-    transform: scale(0.7, 1);
+    transform: scale(0.8, 1);
   }
   50% {
-    transform: scale(1.26, 1.8);
+    transform: scale(1.28, 1.6);
   }
   100% {
-    transform: scale(0.7, 1);
+    transform: scale(0.8, 1);
   }
 }
 body {
@@ -268,6 +269,22 @@ main {
   --index: 16 ;
 }
 
+/*###########################################
+#############################################
+#############################################
+
+      Gestion des Etats d'animation
+
+#############################################
+#############################################
+#############################################*/
+/*###############################
+
+      NB: On récupère les styles
+      de l'état précédent
+      précédents qu'on va ajuster
+
+#################################*/
 .start .start-text h1 span span {
   transform: translateY(0);
 }
@@ -301,7 +318,7 @@ main {
   transition: bottom 1s ease !important;
 }
 .middle .homepod-container div {
-  transform: scale(0.7, 1) !important;
+  transform: scale(0.8, 1) !important;
   transition: transform 1s ease !important;
 }
 .middle .middle-text {
@@ -310,14 +327,14 @@ main {
 }
 .middle .cursor-1 {
   animation-name: show-1;
-  animation-duration: 2.5s;
+  animation-duration: 1.5s;
   animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
   animation-delay: 1s;
   animation-iteration-count: 2;
 }
 .middle .cursor-2 {
   animation-name: show-2;
-  animation-duration: 2.5s;
+  animation-duration: 1.5s;
   animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
   animation-delay: 1.3s;
   animation-iteration-count: 2;
@@ -444,6 +461,13 @@ main {
   bottom: 25px;
 }
 
+/*###############################
+
+      NB: On récupère les styles
+      de l'état précédent
+      précédents qu'on va ajuster
+
+#################################*/
 .widget-open .start-text {
   transform: scale(0) !important;
   transition: transform 0.5s linear !important;
@@ -921,7 +945,55 @@ main {
   --distance-x: var(--rayon);
   --distance-y: 0px;
 }
+.widget .icon-without-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+.widget .icon-without-text .item {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+.widget .icon-without-text .item img {
+  width: 100%;
+  height: 100%;
+}
+.widget .icon-without-text .item:nth-of-type(1) {
+  top: 60px;
+  left: 100px;
+}
+.widget .icon-without-text .item:nth-of-type(2) {
+  top: 60px;
+  right: 100px;
+}
+.widget .icon-without-text .item:nth-of-type(3) {
+  transform: translate(-30px, -50px);
+}
+.widget .icon-without-text .item:nth-of-type(4) {
+  transform: translate(30px, -50px);
+}
+.widget .icon-without-text .item:nth-of-type(5) {
+  left: 100px;
+}
+.widget .icon-without-text .item:nth-of-type(6) {
+  right: 100px;
+}
 
+/*############################################################################################
+##############################################################################################
+
+                      Debut des animations
+
+##############################################################################################
+##############################################################################################
+*/
 .music .icon-with-text .item:nth-of-type(1) .text h3 span {
   transform: translateY(0);
 }
@@ -1106,47 +1178,6 @@ main {
   opacity: 1;
   transform: translateY(-150px);
   transition: transform 0.5s ease;
-}
-
-.icon-without-text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(0);
-  transition: transform 0.5s ease;
-}
-.icon-without-text .item {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-.icon-without-text .item img {
-  width: 100%;
-  height: 100%;
-}
-.icon-without-text .item:nth-of-type(1) {
-  top: 60px;
-  left: 100px;
-}
-.icon-without-text .item:nth-of-type(2) {
-  top: 60px;
-  right: 100px;
-}
-.icon-without-text .item:nth-of-type(3) {
-  transform: translate(-30px, -50px);
-}
-.icon-without-text .item:nth-of-type(4) {
-  transform: translate(30px, -50px);
-}
-.icon-without-text .item:nth-of-type(5) {
-  left: 100px;
-}
-.icon-without-text .item:nth-of-type(6) {
-  right: 100px;
 }
 
 /*# sourceMappingURL=index.css.map */

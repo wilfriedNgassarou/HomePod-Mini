@@ -11,15 +11,16 @@
   transition: transform 1s ease;
 }
 
+// Transition vers le haut
 .widget-active {
   transform: translateY(0);
 }
 
+// Gestion des styles de base des icons
 .widget {
   .icon-container {
     position: absolute;
     top: $header-height;
-    // background-color: red;
     width: 350px;
     height: 350px;
     display: flex;
@@ -27,6 +28,7 @@
     align-items: center;
   }
   
+  // Style de base des icons avec texte
   .icon-with-text {
     position: absolute;
     width: 100%;
@@ -136,8 +138,77 @@
       }
     }
   }
+
+  // Style de base des icons sans texte
+  .icon-without-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: transform .5s ease ;
+
+    .item {
+
+      position: absolute;
+      width: 40px;
+      height: 40px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    
+    }
+
+    .item {
+      
+      &:nth-of-type(1) {
+        top: 60px;
+        left: 100px;
+      }
+
+      &:nth-of-type(2) {
+        top: 60px;
+        right: 100px;
+      }
+
+      &:nth-of-type(3) {
+        transform: translate(-30px, -50px);
+      }
+
+      &:nth-of-type(4) {
+        transform: translate(30px, -50px);
+      }
+
+      &:nth-of-type(5) {
+        left: 100px;
+      }
+
+      &:nth-of-type(6) {
+        // top: 60px;
+        right: 100px;
+      }
+    }
+    
+  }
 }
 
+
+/*############################################################################################
+##############################################################################################
+
+                      Debut des animations
+
+##############################################################################################
+##############################################################################################
+*/
+
+
+// Gestion de l'animation quand l'icon music est active
 .music .icon-with-text {
   .item {
     &:nth-of-type(1) {
@@ -164,6 +235,7 @@
   }
 }
 
+// Gestion de l'animation quand l'icon message est active
 .message .icon-with-text {
   .item {
     &:nth-of-type(1) {
@@ -200,6 +272,7 @@
   }
 }
 
+// Gestion de l'animation quand l'icon podcast est active
 .podcast .icon-with-text {
   .item {
     &:nth-of-type(1) {
@@ -261,11 +334,13 @@
   }
 }
 
+// Transition des conteneurs des icons
 .homes {
   transform: translateY(-80px);
   transition: transform .5s ease;
 }
 
+// Gestion de l'animation quand l'home music est active
 .homes .icon-with-text {
   .item {
     &:nth-of-type(1) {
@@ -351,6 +426,7 @@
   }
 }
 
+// On maintient la transition des conteneurs
 .all {
   transform: translateY(-80px);
   transition: transform .5s ease;
@@ -360,6 +436,7 @@
   }
 }
 
+// Gestion de l'animation quand toutes les icons sont actives
 .all .icon-with-text {
   .item {
     &:nth-of-type(1) {
@@ -444,60 +521,4 @@
       }
     }
   }
-}
-
-.icon-without-text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(0);
-  transition: transform .5s ease ;
-
-  .item {
-
-    position: absolute;
-    width: 40px;
-    height: 40px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-   
-  }
-
-  .item {
-    
-    &:nth-of-type(1) {
-      top: 60px;
-      left: 100px;
-    }
-
-    &:nth-of-type(2) {
-      top: 60px;
-      right: 100px;
-    }
-
-    &:nth-of-type(3) {
-      transform: translate(-30px, -50px);
-    }
-
-    &:nth-of-type(4) {
-      transform: translate(30px, -50px);
-    }
-
-    &:nth-of-type(5) {
-      left: 100px;
-    }
-
-    &:nth-of-type(6) {
-      // top: 60px;
-      right: 100px;
-    }
-  }
-  
 }
