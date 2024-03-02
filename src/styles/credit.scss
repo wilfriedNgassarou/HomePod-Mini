@@ -1,0 +1,15 @@
+.credit {
+  top: calc(50vh - 10px);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 $header-padding-x;
+  width: 100%;
+  height: 20px;
+  z-index: 999;
+
+  a {
+    text-decoration: underline;
+    color: $blue;
+  }
+}

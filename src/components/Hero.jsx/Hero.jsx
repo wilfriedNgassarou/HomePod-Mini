@@ -86,7 +86,7 @@ export default function Hero({step, changeStep, iconShowed, changeIconShowed}) {
       </article>
       <article className="hero-btn-container">
         <span onClick={handleClick}>
-          <a className="btn" href="#">Discover</a>
+          <a className="btn" href="#">Discover ↓</a>
         </span>
       </article>
       <div className={`homepod-container ${iconShowed}`}>

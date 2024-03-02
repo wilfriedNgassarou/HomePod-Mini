@@ -4,6 +4,7 @@ import Hero from "../Hero.jsx/Hero";
 import Shrinking from "../Shrinking/Shrinking";
 import './../../styles/index.css' ;
 import Widget from "../Widget/Widget";
+import Credit from "../Credit/Credit";
 
 export default function App() {
   const [animationStep, setAnimationStep] = useState(1) ;
@@ -28,6 +29,7 @@ export default function App() {
          iconShowed = {iconShowed}
          changeIconShowed={setIconShowed} 
         />
+        <Credit />
       </main>
     </>
   )
