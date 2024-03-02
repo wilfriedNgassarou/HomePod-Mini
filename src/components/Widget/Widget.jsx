@@ -1,22 +1,40 @@
+import { useEffect } from "react";
 
 export default function Widget({step, iconShowed, changeIconShowed}) {
   let className ;
 
   function handleTransitionEnd(e) {
-    if(e.target.tagName != 'DIV') return ;
+    if(!e.target.closest('.item')) return ;
 
-    const target = e.target.closest('.item') ;
-    const widget = target.dataset.target ;
+    const widget = iconShowed ;
 
     if(widget == 'music') {
-      changeIconShowed('message') ;
+      setTimeout(() => {
+        changeIconShowed('message') ;
+      }, 500);
     }
 
     if(widget == 'message') {
-      changeIconShowed('podcast')
+      setTimeout(() => {
+        changeIconShowed('podcast')
+      }, 500);
+    }
+
+    if(widget == 'podcast') {
+      setTimeout(() => {
+        changeIconShowed('homes')
+      }, 500);
+    }
+
+    if(widget == 'homes') {
+      setTimeout(() => {
+        changeIconShowed('all')
+      }, 500);
     }
 
   }
+
+  useEffect(() => console.log(iconShowed))
 
   if(step == 3) {
     className = 'widget widget-active'
@@ -79,9 +97,6 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
             </div>
           </div>
           <div data-target = "home" className="item">
-            <div className="img">
-              <img src="/assets/icons/home.svg" alt="" />
-            </div>
             <div className="text">
               <h3>
                 <span>
@@ -100,6 +115,9 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
                   </span>
                 </span>
               </p>
+            </div>
+            <div className="img">
+              <img src="/assets/icons/home.svg" alt="" />
             </div>
           </div>
           <div data-target = "podcast" className="item">
@@ -122,7 +140,26 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
             </div>
           </div>
         </div>
-        <div className="icon-without-text"></div>
+        <div className="icon-without-text">
+          <div className="item">
+            <img src="/assets/icons/calculator.svg" alt="Calculator" />
+          </div>
+          <div className="item">
+            <img src="/assets/icons/findmy.svg" alt="Calculator" />
+          </div>
+          <div className="item">
+            <img src="/assets/icons/message.svg" alt="Calculator" />
+          </div>
+          <div className="item">
+            <img src="/assets/icons/notes.svg" alt="Calculator" />
+          </div>
+          <div className="item">
+            <img src="/assets/icons/maps.svg" alt="Calculator" />
+          </div>
+          <div className="item">
+            <img src="/assets/icons/ytmusic.svg" alt="Calculator" />
+          </div>
+        </div>
       </div>
     </section>
   )

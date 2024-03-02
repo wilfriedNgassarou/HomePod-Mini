@@ -10,7 +10,7 @@ export default function Shrinking({step, changeStep}) {
       
       changeStep(3) ;
 
-    }, 2000);
+    }, 1500);
   } else if(step == 3) {
     className = 'shrinking shrinking-close'
   }

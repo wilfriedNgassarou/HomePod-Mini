@@ -8,8 +8,6 @@ import Widget from "../Widget/Widget";
 export default function App() {
   const [animationStep, setAnimationStep] = useState(1) ;
   const [iconShowed, setIconShowed] = useState('') ;
-  
-  // console.log(iconShowed);
 
   return (
     <>

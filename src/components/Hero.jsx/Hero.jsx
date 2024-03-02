@@ -35,7 +35,6 @@ export default function Hero({step, changeStep, iconShowed, changeIconShowed}) {
   useEffect(() => {
     setAnimationState('start') ;
 
-
   }, [])
 
   function handleAnimationEnd() {
