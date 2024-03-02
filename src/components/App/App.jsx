@@ -8,20 +8,23 @@ import Widget from "../Widget/Widget";
 export default function App() {
   const [animationStep, setAnimationStep] = useState(1) ;
   const [iconShowed, setIconShowed] = useState('') ;
-
-  console.log(iconShowed);
+  
+  // console.log(iconShowed);
 
   return (
     <>
       <Header />
       <main>
-        <Hero 
-          step={animationStep} 
+        <Hero  
+          step={animationStep}
           changeStep={setAnimationStep}
           iconShowed={iconShowed}
           changeIconShowed={setIconShowed} 
         />
-        <Shrinking step={animationStep} changeStep={setAnimationStep}  />
+        <Shrinking
+          step={animationStep} 
+          changeStep={setAnimationStep}  
+        />
         <Widget
          step={animationStep}
          iconShowed = {iconShowed}

@@ -14,13 +14,23 @@ export default function Hero({step, changeStep, iconShowed, changeIconShowed}) {
     setAnimationState('middle') ;
   }
 
+  
   if(step == 3) {
     setTimeout(() => {
       setAnimationState('widget-open')
-      changeIconShowed('music')
-    }, 50);    
+        
+      
+      setTimeout(() => {
+        if(iconShowed == '') {
+          changeIconShowed('music')
+        }
 
+      }, 1000);
+
+      }, 50);    
+  
   }
+
 
   useEffect(() => {
     setAnimationState('start') ;

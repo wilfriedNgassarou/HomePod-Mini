@@ -1,5 +1,22 @@
+
 export default function Widget({step, iconShowed, changeIconShowed}) {
   let className ;
+
+  function handleTransitionEnd(e) {
+    if(e.target.tagName != 'DIV') return ;
+
+    const target = e.target.closest('.item') ;
+    const widget = target.dataset.target ;
+
+    if(widget == 'music') {
+      changeIconShowed('message') ;
+    }
+
+    if(widget == 'message') {
+      changeIconShowed('podcast')
+    }
+
+  }
 
   if(step == 3) {
     className = 'widget widget-active'
@@ -12,8 +29,8 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
   return (
     <section className={className}>
       <div className={`icon-container ${iconShowed}`}>
-        <div className="icon-with-text">
-          <div className="item">
+        <div onTransitionEnd={handleTransitionEnd} className="icon-with-text">
+          <div data-target = "music" className="item">
             <div className="text">
               <h3>
                 <span>
@@ -22,10 +39,14 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
               </h3>
               <p>
                 <span>
-                 Listen to tracks by song, artist, album, playlist, <br />
-                </span> <br />
+                  <span>
+                   Listen to tracks by song, artist, album, playlist, 
+                  </span>
+                </span>
                 <span>
-                 genre, or lyrics.6
+                  <span>
+                    genre, or lyrics.6
+                  </span>
                 </span>
               </p>
             </div>
@@ -33,7 +54,7 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
               <img src="/assets/icons/music.svg" alt="" />
             </div>
           </div>
-          <div className="item">
+          <div data-target = "message" className="item">
             <div className="text">
               <h3>
                 <span>
@@ -41,15 +62,23 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
                 </span>
               </h3>
               <p>
-                Send and receive messages, and make or take <br />
-                 phone calls.
+                <span>
+                  <span>
+                    Send and receive messages, and make or 
+                  </span>
+                </span>
+                <span>
+                  <span>
+                    phone calls.
+                  </span>
+                </span>
               </p>
             </div>
             <div className="img">
               <img src="/assets/icons/message.svg" alt="" />
             </div>
           </div>
-          <div className="item">
+          <div data-target = "home" className="item">
             <div className="img">
               <img src="/assets/icons/home.svg" alt="" />
             </div>
@@ -60,19 +89,32 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
                 </span>
               </h3>
               <p>
-                Control smart home accessories like thermostats, lights, and blinds.7
+                <span>
+                  <span>
+                      Control smart home accessories like 
+                  </span>
+                </span>
+                <span>
+                  <span>
+                      thermostats, lights, and blinds.7
+                  </span>
+                </span>
               </p>
             </div>
           </div>
-          <div className="item">
+          <div data-target = "podcast" className="item">
             <div className="text">
               <h3>
                 <span>
-                  Hey Siri
+                  Siri
                 </span>
               </h3>
               <p>
-                Listen to Apple Podcasts and radio stations.
+                <span>
+                  <span>
+                    Listen to Apple Podcasts and radio stations.
+                  </span>
+                </span>
               </p>
             </div>
             <div className="img">

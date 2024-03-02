@@ -102,9 +102,6 @@ main {
 .start-text {
   position: relative;
   z-index: 10;
-}
-
-.start-text {
   overflow-y: hidden;
 }
 .start-text h1, .start-text h2 {
@@ -192,7 +189,7 @@ main {
 }
 
 .homepod-container {
-  transition: bottom 0.7s linear, opacity 0.5s linear;
+  transition: bottom 0.7s linear, opacity 0.8s linear;
   opacity: 0;
   bottom: calc(100vh - 289px);
   transform-origin: bottom;
@@ -478,11 +475,12 @@ main {
   opacity: 0;
 }
 .widget-open .homepod-container div:nth-of-type(3) {
-  --scale-x: .6 ;
-  --scale-y: .6 ;
-  --translate-x: 0 ;
-  --translate-y: 0;
+  --scale-x: .3 ;
+  --scale-y: .4 ;
+  --translate-x: calc(45px + 10px) ;
+  --translate-y: calc(20px + 5px);
   opacity: 0;
+  transform-origin: center;
   z-index: 16;
 }
 .widget-open .homepod-container div:nth-of-type(4) {
@@ -521,6 +519,162 @@ main {
   opacity: 0 !important;
   transition: opacity 1s ease;
   bottom: 25px;
+}
+
+.widget-open .music div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale-x), var(--scale-y)) !important;
+  transition: all 1s ease;
+  width: 311px;
+  height: 289px;
+}
+.widget-open .music div:nth-of-type(1) {
+  --scale-x: .6;
+  --scale-y: .6;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  opacity: 0;
+  z-index: 18;
+}
+.widget-open .music div:nth-of-type(2) {
+  --scale-x: .6 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: 0;
+  z-index: 17;
+  opacity: 0;
+}
+.widget-open .music div:nth-of-type(3) {
+  --scale-x: .3 ;
+  --scale-y: .4 ;
+  --translate-x: 45px ;
+  --translate-y: 20px;
+  opacity: 1;
+  transform-origin: center;
+  z-index: 16;
+}
+.widget-open .music div:nth-of-type(4) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 20;
+  --scale-x: .6 ;
+  --scale-y: .8 ;
+  transform-origin: center;
+  --translate-x: calc(var(--translate-width) / -3.5 + 100px) ;
+  --translate-y: 100px;
+}
+.widget-open .music div:nth-of-type(5) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 19;
+  --scale-x: .5 ;
+  --scale-y: .6 ;
+  --translate-x: 100px ;
+  --translate-y: calc(-30px + 90px);
+  transform-origin: center;
+}
+
+.widget-open .message div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale-x), var(--scale-y)) !important;
+  transition: all 1s ease;
+  width: 311px;
+  height: 289px;
+}
+.widget-open .message div:nth-of-type(1) {
+  --scale-x: .6;
+  --scale-y: .6;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  opacity: 0;
+  z-index: 18;
+}
+.widget-open .message div:nth-of-type(2) {
+  --scale-x: .6 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: 0;
+  z-index: 17;
+  opacity: 0;
+}
+.widget-open .message div:nth-of-type(3) {
+  --scale-x: .3 ;
+  --scale-y: .4 ;
+  --translate-x: calc(45px - 70px) ;
+  --translate-y: calc(20px - 30px);
+  opacity: 1;
+  transform-origin: center;
+  z-index: 16;
+}
+.widget-open .message div:nth-of-type(4) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 20;
+  --scale-x: .6 ;
+  --scale-y: .8 ;
+  transform-origin: center;
+  --translate-x: calc(var(--translate-width) / -3.5 + 100px) ;
+  --translate-y: 100px;
+}
+.widget-open .message div:nth-of-type(5) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 19;
+  --scale-x: .5 ;
+  --scale-y: .6 ;
+  --translate-x: -100px ;
+  --translate-y: calc(-30px + 90px);
+  transform-origin: center;
+}
+
+.widget-open .podcast div {
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale-x), var(--scale-y)) !important;
+  transition: all 1s ease;
+  width: 311px;
+  height: 289px;
+}
+.widget-open .podcast div:nth-of-type(1) {
+  --scale-x: .6;
+  --scale-y: .6;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  opacity: 0;
+  z-index: 18;
+}
+.widget-open .podcast div:nth-of-type(2) {
+  --scale-x: .6 ;
+  --scale-y: .6 ;
+  --translate-x: 0 ;
+  --translate-y: 0;
+  z-index: 17;
+  opacity: 0;
+}
+.widget-open .podcast div:nth-of-type(3) {
+  --scale-x: .4 ;
+  --scale-y: .5 ;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  opacity: 1;
+  transform-origin: right;
+  z-index: 16;
+}
+.widget-open .podcast div:nth-of-type(4) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 20;
+  --scale-x: .6 ;
+  --scale-y: .8 ;
+  transform-origin: center;
+  --translate-x: calc(var(--translate-width) / -3.5 + 100px) ;
+  --translate-y: 100px;
+}
+.widget-open .podcast div:nth-of-type(5) {
+  --translate-width: 311px ;
+  --translate-height: 289px;
+  z-index: 19;
+  --scale-x: .4 ;
+  --scale-y: .5 ;
+  --translate-x: 0px ;
+  --translate-y: 0;
+  transform-origin: left;
 }
 
 .shrinking {
@@ -567,8 +721,8 @@ main {
 .widget .icon-container {
   position: absolute;
   top: 96px;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -594,10 +748,15 @@ main {
 .widget .icon-with-text .item .img {
   width: 40px;
   height: 40px;
+  opacity: 0;
+  transition: transform 0.5s linear, opacity 0.5s linear;
 }
 .widget .icon-with-text .item .img img {
   width: 100%;
   height: 100%;
+}
+.widget .icon-with-text .item:nth-of-type(1) .img {
+  transform: translateY(-20px);
 }
 .widget .icon-with-text .text h3 {
   overflow: hidden;
@@ -608,15 +767,25 @@ main {
   display: block;
   background: linear-gradient(0deg, #FFA745 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
   background-clip: text;
-  transform: translateY(50%);
+  transform: translateY(40px);
+  transition: transform 0.5s linear;
 }
 .widget .icon-with-text .text p {
   font-size: 17px;
   letter-spacing: -0.006px;
   color: #86868B;
 }
+.widget .icon-with-text .text p > span {
+  display: block;
+  overflow: hidden;
+}
+.widget .icon-with-text .text p > span span {
+  display: block;
+  transform: translateY(40px);
+  transition: transform 0.5s linear;
+}
 .widget .icon-with-text .item {
-  --rayon: 175px ;
+  --rayon: 150px ;
   transform: translate(calc(cos(var(--angle)) * var(--distance-x)), calc(sin(var(--angle)) * var(--distance-y)));
 }
 .widget .icon-with-text .item:nth-of-type(1) {
@@ -625,20 +794,86 @@ main {
   --distance-y: var(--rayon);
 }
 .widget .icon-with-text .item:nth-of-type(2) {
-  --angle: 0;
-  --distance-x: var(--rayon);
-  --distance-y: 0px;
+  --angle: pi ;
+  --distance-x: var(--rayon) ;
+  --distance-y: 0px ;
 }
 .widget .icon-with-text .item:nth-of-type(3) {
   --angle: calc(pi / 2) ;
   --distance-x: 0px;
   --distance-y: var(--rayon);
-  z-index: 999999999 !important;
 }
 .widget .icon-with-text .item:nth-of-type(4) {
-  --angle: pi ;
-  --distance-x: var(--rayon) ;
-  --distance-y: 0px ;
+  --angle: 0;
+  --distance-x: var(--rayon);
+  --distance-y: 0px;
+}
+
+.music .icon-with-text .item:nth-of-type(1) .text h3 span {
+  transform: translateY(0);
+}
+.music .icon-with-text .item:nth-of-type(1) .text p span span {
+  transform: translateY(0);
+}
+.music .icon-with-text .item:nth-of-type(1) .img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message .icon-with-text .item:nth-of-type(1) .img {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.message .icon-with-text .item:nth-child(2) .text {
+  transform: translateY(-50px);
+  transition: transform 0.5s ease;
+}
+.message .icon-with-text .item:nth-child(2) .text h3 span {
+  transform: translateY(0);
+}
+.message .icon-with-text .item:nth-child(2) .text p span span {
+  transform: translateY(0);
+}
+.message .icon-with-text .item:nth-child(2) .img {
+  opacity: 1;
+  transform: translateY(-50px);
+  transition: transform 0.5s ease;
+}
+
+.podcast .icon-with-text .item:nth-of-type(1) .img {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.podcast .icon-with-text .item:nth-child(4) .text {
+  opacity: 1;
+  transform: translateY(-90px);
+  transition: opacity 0.5s ease;
+}
+.podcast .icon-with-text .item:nth-child(4) .text h3 span {
+  transform: translateY(0);
+}
+.podcast .icon-with-text .item:nth-child(4) .text p span span {
+  transform: translateY(0);
+}
+.podcast .icon-with-text .item:nth-child(4) .img {
+  opacity: 1;
+  transform: translateY(-100px);
+  transition: transform 0.5s ease;
+}
+.podcast .icon-with-text .item:nth-child(2) .text {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.podcast .icon-with-text .item:nth-child(2) .text h3 span {
+  transform: translateY(0);
+}
+.podcast .icon-with-text .item:nth-child(2) .text p span span {
+  transform: translateY(0);
+}
+.podcast .icon-with-text .item:nth-child(2) .img {
+  opacity: 1;
+  transform: translateY(-120px);
+  transition: transform 0.5s ease;
 }
 
 /*# sourceMappingURL=index.css.map */

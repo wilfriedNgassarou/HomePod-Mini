@@ -20,8 +20,8 @@
     position: absolute;
     top: $header-height;
     // background-color: red;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,10 +49,19 @@
       .img {
         width: 40px;
         height: 40px;
+        opacity: 0;
+        transition: transform .5s linear, opacity .5s linear;
 
         img {
           width: 100%;
           height: 100%;
+        }
+      }
+
+      &:nth-of-type(1) {
+
+        .img {
+          transform: translateY(-20px);
         }
       }
     }
@@ -68,7 +77,8 @@
           display: block;
           background: linear-gradient(0deg, #FFA745 0%, #FE869F 30%, #EF7AC8 45%, #A083ED 70%, #43AEFF 85%);
           background-clip: text;
-          transform: translateY(50%);
+          transform: translateY(40px);
+          transition: transform .5s linear;
         }
 
       }
@@ -77,11 +87,22 @@
         font-size: 17px;
         letter-spacing: -0.006px;
         color: #86868B;
+
+        & > span {
+          display: block;
+          overflow: hidden;
+
+          span {
+            display: block;
+            transform: translateY(40px);
+            transition: transform .5s linear;
+          }
+        }
       }
     }
 
     .item {
-      --rayon: 175px ;
+      --rayon: 150px ;
       transform: translate(
         calc(
           cos(var(--angle)) * var(--distance-x)
@@ -97,22 +118,144 @@
         --distance-y: var(--rayon);
       }
       &:nth-of-type(2) {
-        --angle: 0;
-        --distance-x: var(--rayon);
-        --distance-y: 0px;
+        --angle: pi ;
+        --distance-x: var(--rayon) ;
+        --distance-y: 0px ;
+
       }
       
       &:nth-of-type(3) {
         --angle: calc(pi / 2) ;
         --distance-x: 0px;
         --distance-y: var(--rayon);
-        z-index: 999999999 !important;
       }
       &:nth-of-type(4) {
-        --angle: pi ;
-        --distance-x: var(--rayon) ;
-        --distance-y: 0px ;
+        --angle: 0;
+        --distance-x: var(--rayon);
+        --distance-y: 0px;      
+      }
+    }
+  }
+}
+
+.music .icon-with-text {
+  .item {
+    &:nth-of-type(1) {
+
+
+      .text {
+        h3 {
+          span {
+            transform: translateY(0);
+          }
+        }
+        p {
+          span span {
+            transform: translateY(0);
+          }
+        }
+      }
+
+      .img {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.message .icon-with-text {
+  .item {
+    &:nth-of-type(1) {
       
+      .img {
+        opacity: 1 ;
+        transform: translateY(-20px);
+      }
+    }
+
+    &:nth-child(2) {
+
+      .text {
+        transform: translateY(-50px);
+        transition: transform .5s ease;
+
+        h3 {
+          span {
+            transform: translateY(0) ;
+          }
+        }
+
+        p span span {
+          transform: translateY(0);
+        }
+      }
+
+      .img {
+        opacity: 1;
+        transform: translateY(-50px);
+        transition: transform .5s ease;
+      }
+    }
+  }
+}
+
+.podcast .icon-with-text {
+  .item {
+    &:nth-of-type(1) {
+      
+      .img {
+        opacity: 1 ;
+        transform: translateY(-20px);
+      }
+    }
+
+    &:nth-child(4) {
+
+      .text {
+        opacity: 1;
+        transform: translateY(-90px);
+        transition: opacity .5s ease;
+
+        h3 {
+          span {
+            transform: translateY(0) ;
+          }
+        }
+
+        p span span {
+          transform: translateY(0);
+        }
+      }
+
+      .img {
+        opacity: 1;
+        transform: translateY(-100px);
+        transition: transform .5s ease;
+      }
+    }
+    &:nth-child(2) {
+
+      .text {
+        opacity: 0;
+        // transform: translateY(-50px);
+        transition: opacity .5s ease;
+
+        h3 {
+          span {
+            transform: translateY(0) ;
+          }
+        }
+
+        p span span {
+          transform: translateY(0);
+        }
+      }
+
+      .img {
+        opacity: 1;
+        transform: translateY(-120px);
+        transition: transform .5s ease;
       }
     }
   }
