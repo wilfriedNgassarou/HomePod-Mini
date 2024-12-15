@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "../Header/Header";
-import Hero from "../Hero.jsx/Hero";
+import Hero from "../Hero/Hero";
 import Shrinking from "../Shrinking/Shrinking";
 import './../../styles/index.css' ;
 import Widget from "../Widget/Widget";

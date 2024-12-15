@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export default function Widget({step, iconShowed, changeIconShowed}) {
   let className ;
 
@@ -33,8 +31,6 @@ export default function Widget({step, iconShowed, changeIconShowed}) {
     }
 
   }
-
-  useEffect(() => console.log(iconShowed))
 
   if(step == 3) {
     className = 'widget widget-active'

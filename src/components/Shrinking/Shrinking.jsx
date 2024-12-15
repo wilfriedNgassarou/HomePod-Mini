@@ -18,7 +18,7 @@ export default function Shrinking({step, changeStep}) {
 
   return (
     <section className={className}>
-      <img src="/assets/shrinking.png" alt="Shrinking" />
+      <img src="/assets/shrinking.webp" alt="Shrinking" />
     </section>
   )
 }
