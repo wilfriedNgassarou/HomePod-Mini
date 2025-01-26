@@ -12,6 +12,11 @@ export default function App() {
 
   return (
     <>
+      <div className='large-screen'>
+        <span style={{ fontSize: 20 }}>
+          Please, use a large screen
+        </span>
+      </div>
       <Header />
       <main>
         <Hero  
